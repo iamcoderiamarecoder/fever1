@@ -20,11 +20,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",include("SERVER1.urls")),
     path("notice/",include("SERVER1.urls")),
-    path("blog/",include("SERVER1.urls")),
     path("events/",include("SERVER1.urls")),
     path("about/",include("SERVER1.urls")),
     path("login_page/",include("SERVER1.urls")),
     path("logout_page/",include("SERVER1.urls")),
+    
+    path("blog_delete/",include("SERVER1.urls")),
+    path("blog_sample/",include("SERVER1.urls")),
 
 #for the attendence class to choose[To mark]
     path("classes_to_mark/",include("SERVER1.urls")),

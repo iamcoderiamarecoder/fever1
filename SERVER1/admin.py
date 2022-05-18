@@ -31,6 +31,7 @@ from .models import class_10_student
 from .models import Notice_Database
 from .models import About
 
+from .models import Blog
 
 admin.site.register(class_1)
 admin.site.register(class_2)
@@ -61,6 +62,8 @@ admin.site.register(class_8_student)
 admin.site.register(class_9_student)
 admin.site.register(class_10_student)
 admin.site.register(Notice_Database)
+
+admin.site.register(Blog)
 
 
 admin.site.register(About)

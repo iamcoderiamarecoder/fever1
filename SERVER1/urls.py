@@ -4,12 +4,14 @@ from SERVER1  import views
 urlpatterns = [
     path("",views.index,name="home"),
     path("notice/",views.notice,name="notice"),
-    path("blog/",views.blog,name="blog"),
     path("events/",views.events,name="events"),
     path("about/",views.about,name="about"),
     path("login_page/",views.login_page,name="login_page"),
     path("logout_page/",views.logout_page,name="logout_page"),
    
+    path("blog_sample/",views.blog_sample,name="blog_sample"),
+    path("blog_delete/",views.blog_delete,name="blog_delete"),
+
     path("classes_to_mark/",views.classes_to_mark,name="Select class to mark"),
     path("classes_to_query/",views.classes_to_query,name="Select class to query"),
 

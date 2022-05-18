@@ -8,7 +8,7 @@ from .decorators import authenticated_user,allowed_user
 
 from django.contrib.auth.models import User,Group
 
-
+import datetime
 
 from .models import class_1,class_1_student
 from .models import class_2,class_2_student
@@ -23,6 +23,7 @@ from .models import class_10,class_10_student
 
 from .models import Notice_Database
 from .models import About
+from .models import Blog
 
 # Create your views here.
 #we have use some global variables at first i made each global variable for each function like roll_no9="",roll_no10=""
@@ -42,8 +43,34 @@ def notice(request):
 
     return render(request,"notice.html",param)
 
-def blog(request):
-    return render(request,"blog.html")
+
+def blog_sample(request):
+    if request.method == "POST":
+        content= request.POST.get("whatsonyourmind")
+        writer= str(request.user)
+        b_date= str(datetime.datetime.today())  #for making date in right format
+        if writer != "AnonymousUser":
+            blog_add=Blog(date=b_date,writer=writer,content=content)
+            blog_add.save()
+     
+    blog_info = Blog.objects.all()
+    
+    param = {"blog_info":blog_info}
+    return render(request,"blog_sample.html",param)
+
+
+def blog_delete(request):
+    if request.method == "POST":
+
+        user=str(request.user)
+        id=request.POST.get("id")
+        
+        writer=Blog.objects.get(id=id)
+        if user == str(writer):
+            print(user)
+            writer.delete()
+        
+    return redirect("/blog_sample")
 
 @authenticated_user
 def events(request):

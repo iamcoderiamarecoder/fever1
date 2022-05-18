@@ -298,3 +298,21 @@ class About(models.Model):
     
 
 
+
+
+
+class Blog(models.Model):
+    id= models.AutoField(primary_key=True)
+    date = models.DateTimeField()
+
+    
+    writer =models.CharField(max_length=60)
+    content= models.TextField(default="")
+
+
+    def __str__(self):
+        return self.writer
+
+        
+    class Meta:
+        ordering = ['-date',]
